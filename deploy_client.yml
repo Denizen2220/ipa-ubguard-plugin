@@ -1,0 +1,27 @@
+- name: Настройка АРМ для USBGuard freeipa
+  hosts: all
+  become: yes
+  tasks: 
+
+  - name: Устанавливаем USBGuard
+    ansible.builtin.apt: 
+      name: usbguard
+      state: present
+      update_cache: yes
+
+  - name: Скачиваем код службы
+    ansible.builtin.copy:
+      src: 
+      dest: /usr/local/bin/
+
+  - name: Скачиваем файл службы
+    ansible.builtin.copy:
+      src: 
+      dest: /etc/systemd/system/
+      
+  - name: Запуск службы
+    systemd:
+      name:
+      state: started
+      enabled: true 
+      daemon_reload: yes 
