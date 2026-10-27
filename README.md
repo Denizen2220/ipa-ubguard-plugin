@@ -1,3 +1,5 @@
+Значения your.freeipa.server и dc=freeipa,dc=server, group меняем на свои
+
 Серверная часть
 
 Файл со схемами 99-usbguard.ldif помешаем по пути /etc/dirsrv/slapd-USB-GUAR/schema/
@@ -57,7 +59,7 @@ EOF
     --attrs=usbguardrules \
     --permissions=read \
     --filter="(&(objectclass=ipaHostGroup))" \
-    --subtree="cn=hostgroups,cn=accounts,dc=usb,dc=guar"
+    --subtree="cn=hostgroups,cn=accounts,dc=freeipa,dc=server"
 
 ipa privilege-add "Read USBGuard Privilege for cli"
 ipa privilege-add-permission "Read USBGuard Privilege for cli" --permissions="Read USBGuard Rules for cli"
