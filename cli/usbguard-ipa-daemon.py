@@ -7,8 +7,8 @@ import ldap
 import ldap.sasl
 from ldap.controls.psearch import PersistentSearchControl
 
-IPA_SERVER = "ldap://test.usb.guar"
-BASE_DN = "dc=usb,dc=guar"
+IPA_SERVER = "ldap://your.freeipa.server"
+BASE_DN = "dc=freeipa,dc=server"
 CUSTOM_ATTR = "usbguardrules"
 RULES_FILE = "/etc/usbguard/rules.conf" 
 
