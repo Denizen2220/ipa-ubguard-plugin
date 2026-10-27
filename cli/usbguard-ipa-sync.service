@@ -1,0 +1,14 @@
+[Unit]
+Description=USBGuard Real-time Sync Daemon from FreeIPA
+After=network-online.target sssd.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/usbguard-ipa-daemon.py
+SecureBits=keep-caps
+Restart=always
+RestartSec=15
+
+[Install]
+WantedBy=multi-user.target
